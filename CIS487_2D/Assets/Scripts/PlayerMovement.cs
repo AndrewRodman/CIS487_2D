@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float thrust=50;
+	public AudioSource gasSound;
+	public GameObject fireAni;
+    public float thrust=70;
     public float sthrust=20;
     public static float downThrust=50;
     public static Rigidbody2D rb;
@@ -13,9 +15,12 @@ public class PlayerMovement : MonoBehaviour {
     private bool isLeftPressed = false;
     private bool isLanded = true;
 
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+		fireAni.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -35,12 +40,30 @@ public class PlayerMovement : MonoBehaviour {
           }
 
       */
+		if (!Input.GetKey ("space")) {
+			fireAni.SetActive(false);
+			gasSound.Stop ();
+		}
 
-
-        if (Input.GetKey ("space")) { //SpaceBar For Gas
-            rb.AddRelativeForce(transform.up*thrust);
+		if ((Input.GetKey ("space"))&&Gas.gasAmount>0){ //SpaceBar For Gas
+			rb.AddRelativeForce(transform.up*thrust);
             Gas.gasAmount = Gas.gasAmount - Gas.gasUsedAmount;
+			fireAni.SetActive(true);
+
+			if (gasSound.isPlaying) {
+			}
+			else {
+				gasSound.Play ();
+			}
+			if (Gas.gasAmount <1) {
+				thrust = 0;
+				fireAni.SetActive(false);
+				gasSound.Stop ();
+			}
+
         }
+	
+
         if (Input.GetKey ("d") || Input.GetKey ("right")) { //D or Right Arrow for right
             //rb.AddRelativeForce (transform.right * sthrust);
             transform.Rotate(transform.forward * -1 * 2);
@@ -55,6 +78,7 @@ public class PlayerMovement : MonoBehaviour {
         if ((Input.GetKey ("s") || Input.GetKey ("down"))&&Upgrades.fallFasterUpgrade>0) {			
             rb.AddRelativeForce(transform.up*-thrust);
         }
+
     }
 
     public void OnPointerDownGasPressed()
