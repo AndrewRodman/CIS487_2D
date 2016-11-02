@@ -264,11 +264,6 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: 8a3b2972ba4f0544b8368ec9499eb3c9,
         type: 3}
-    - target: {fileID: 114000011156242738, guid: 87a5f54f5a4f90e4c9728821b403fdca,
-        type: 2}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 1484606976}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87a5f54f5a4f90e4c9728821b403fdca, type: 2}
   m_IsPrefabParent: 0
@@ -346,11 +341,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 462314254}
---- !u!1 &692255493 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010816207786, guid: 87a5f54f5a4f90e4c9728821b403fdca,
-    type: 2}
-  m_PrefabInternal: {fileID: 330721801}
 --- !u!1 &878832356
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,9 +387,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 878832356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e833549adf63d8542aa8830e15ff244a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e075157de09ea3418a5199a170c30c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuPanel: {fileID: 1484606976}
 --- !u!114 &878832359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +431,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 878832358}
-        m_MethodName: Clicked
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -495,36 +486,3 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012749796208, guid: 87a5f54f5a4f90e4c9728821b403fdca,
     type: 2}
   m_PrefabInternal: {fileID: 330721801}
---- !u!1 &1680989262 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011147782254, guid: 87a5f54f5a4f90e4c9728821b403fdca,
-    type: 2}
-  m_PrefabInternal: {fileID: 330721801}
---- !u!68 &1680989265
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680989262}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -69.408325, y: 0.58325195}
-  - {x: 29.489655, y: 0.41674805}
---- !u!114 &1680989266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680989262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3214f772e675215458f90bb7a41d6ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomEdge: {fileID: 1680989265}
-  panel: {fileID: 692255493}
