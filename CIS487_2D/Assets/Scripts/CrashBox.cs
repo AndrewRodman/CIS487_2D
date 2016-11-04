@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Crash : MonoBehaviour {
-	public EdgeCollider2D bottomEdge;
+public class CrashBox : MonoBehaviour {
+	public BoxCollider2D boxEdge;
 	public GameObject panel;
 
 	// Use this for initialization
 	void Start () {
-		bottomEdge = GetComponent<EdgeCollider2D>();
-		bottomEdge.enabled= true;
+		boxEdge = GetComponent<BoxCollider2D>();
+		boxEdge.enabled= true;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(bottomEdge.IsTouchingLayers()){
+		if(boxEdge.IsTouchingLayers()){
 			panel.SetActive (true);
 			Time.timeScale = 0;//pause
 		}

@@ -5,7 +5,7 @@ public class Coin : MonoBehaviour {
 	public CircleCollider2D coinEdge;
 	public UnityEngine.UI.Text coinText;
 	public GameObject coinObject;
-	public static int coinCount=0;
+	public static int coinCount=2;
 	public AudioSource coinSoundFx;
 
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour {
 		coinEdge= GetComponent<CircleCollider2D>();
 		coinEdge.enabled= true;
 		coinObject.SetActive(true);
-		coinCount=99;//testing
+		//coinCount=99;//testing
 	}
 	
 	// Update is called once per frame
